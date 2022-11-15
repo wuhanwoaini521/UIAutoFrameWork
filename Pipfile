@@ -1,7 +1,11 @@
 [[source]]
-url = "https://pypi.org/simple"
+url = "https://mirrors.aliyun.com/pypi/simple/"
 verify_ssl = true
 name = "pypi"
+trusted-host = "mirrors.aliyun.com"
+
+[install] # 信任来源
+trusted-host = "mirrors.aliyun.com"
 
 [packages]
 

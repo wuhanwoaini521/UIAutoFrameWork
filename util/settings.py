@@ -2,7 +2,9 @@
 ENV = 'test'
 
 # test url test config
-WEB_TEST_BASE_URL = ""
+WEB_TEST_BASE_URL = "http://192.168.1.180:9527"
+TIMES = 10
+POLL_FREQUENCY = 0.5
 
 # mysql
 MYSQL_HOST = ""

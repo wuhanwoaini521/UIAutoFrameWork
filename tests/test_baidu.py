@@ -12,5 +12,9 @@ driver = webdriver.Chrome(r"C:\Users\Administrator\Desktop\UIAutoFrameWork\drive
 base = BaseControl(driver)
 
 base.open_url()
+
+base.input_text('name', 'username', 'wuhan')
+base.click("xpath", "//span[text()='登录']")
+
 sleep(5)
 driver.quit()
