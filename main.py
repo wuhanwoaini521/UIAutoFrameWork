@@ -6,3 +6,4 @@ driver = webdriver.Chrome(r"C:\Users\Administrator\Desktop\UIAutoFrameWork\drive
 driver.get("http://192.168.1.180:9527")
 sleep(5)
 driver.quit()
+

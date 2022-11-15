@@ -66,11 +66,6 @@ class BaseControl:
         """
         self.driver.quit()
 
-    def input_text(self, locate_method, locator, text):
-        self.find_element(locate_method, locator).send_keys(text)
-
-    def click(self, locate_method, locator):
-        self.find_element(locate_method, locator).click()
 
     def find_element(self, locate_method, locator, times=times, poll_frequency=poll_frequency):
         """
@@ -107,3 +102,15 @@ class BaseControl:
         except TimeoutException:
             traceback.print_exc()
             raise TimeoutException(msg="元素未找到，超时！")
+
+    def input_text(self, locate_method, locator, text):
+        self.find_element(locate_method, locator).send_keys(text)
+
+    def click(self, locate_method, locator):
+        self.find_element(locate_method, locator).click()
+    
+    def alert(self):
+        pass
+    
+    def switch_windoww(self):
+        pass
