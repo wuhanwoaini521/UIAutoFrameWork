@@ -1,9 +1,10 @@
+import pytest
 from selenium import webdriver
 from time import sleep
+import os
+import allure
 
-driver = webdriver.Chrome(r"C:\Users\Administrator\Desktop\UIAutoFrameWork\driver\chromedriver.exe")
 
-driver.get("http://192.168.1.180:9527")
-sleep(5)
-driver.quit()
-
+if __name__ == '__main__':
+    pytest.main(['-s', '-q', 'tests/test_login.py', '--alluredir', 'outFiles/reports/allure-results'])
+    os.system(r"allure generate outFiles/reports/allure-results -o outFiles/reports/allure-result --clean")

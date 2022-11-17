@@ -45,16 +45,16 @@ class MyLogger:
         return self.logger
 
     def info(self, msg):
-        return self.logger.info(msg)
+        return self.logger.info(">>>>>> %s" % msg)
 
     def debug(self, msg):
-        return self.logger.debug(msg)
+        return self.logger.debug(">>>>>> %s" % msg)
 
     def warning(self, msg):
-        return self.logger.warning(msg)
+        return self.logger.warning(">>>>>> %s" % msg)
 
     def error(self, msg):
-        return self.logger.error(msg)
+        return self.logger.error("★★★★★★★ %s ★★★★★★" % msg)
 
 
 my_logger = MyLogger().get_logger()
