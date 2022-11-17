@@ -1,0 +1,9 @@
+"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
+"passed","Thu Nov 17 18:30:34 CST 2022","Thu Nov 17 18:30:35 CST 2022","1339","tests","test_login","Test_Login","","","登录成功测试","
+        登录测试用例
+        :return:
+        "
+"failed","Thu Nov 17 18:30:44 CST 2022","Thu Nov 17 18:30:45 CST 2022","1309","tests","test_login","Test_Login","","","登录失败测试","
+        登录测试用例
+        :return:
+        "
