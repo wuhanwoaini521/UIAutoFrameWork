@@ -70,3 +70,15 @@
 20221117 18:30:45 - MainProcess | MainThread | log_control.info:48 - INFO ->>>>>> 输入姓名: wuhan
 20221117 18:30:45 - MainProcess | MainThread | log_control.info:48 - INFO ->>>>>> 输入密码: 123456
 20221117 18:30:45 - MainProcess | MainThread | log_control.info:48 - INFO ->>>>>> 点击登录按钮
+20221117 21:32:17 - MainProcess | MainThread | log_control.info:48 - INFO ->>>>>> 输入姓名: wuhan
+20221117 21:32:17 - MainProcess | MainThread | log_control.info:48 - INFO ->>>>>> 输入密码: 123456
+20221117 21:32:17 - MainProcess | MainThread | log_control.info:48 - INFO ->>>>>> 点击登录按钮
+20221117 21:32:26 - MainProcess | MainThread | log_control.info:48 - INFO ->>>>>> 输入姓名: wuhan
+20221117 21:32:26 - MainProcess | MainThread | log_control.info:48 - INFO ->>>>>> 输入密码: 123456
+20221117 21:32:26 - MainProcess | MainThread | log_control.info:48 - INFO ->>>>>> 点击登录按钮
+20221117 21:45:27 - MainProcess | MainThread | log_control.info:48 - INFO ->>>>>> 输入姓名: wuhan
+20221117 21:45:27 - MainProcess | MainThread | log_control.info:48 - INFO ->>>>>> 输入密码: 123456
+20221117 21:45:27 - MainProcess | MainThread | log_control.info:48 - INFO ->>>>>> 点击登录按钮
+20221117 21:45:36 - MainProcess | MainThread | log_control.info:48 - INFO ->>>>>> 输入姓名: wuhan
+20221117 21:45:36 - MainProcess | MainThread | log_control.info:48 - INFO ->>>>>> 输入密码: 123456
+20221117 21:45:36 - MainProcess | MainThread | log_control.info:48 - INFO ->>>>>> 点击登录按钮

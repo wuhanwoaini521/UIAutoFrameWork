@@ -8,7 +8,7 @@ import pytest
 import os
 
 
-@allure.feature('登录页测试')
+@allure.epic('登录页测试')
 class Test_Login:
 
     def setup_method(self):
