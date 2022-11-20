@@ -4,7 +4,7 @@ from util import settings
 
 
 @pytest.fixture(scope='session')
-def driver():
+def webDriver():
     # 打开driver
     driver = Choose_Driver(settings.DRIVER_NAME).choose_driver()
     yield driver

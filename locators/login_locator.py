@@ -5,3 +5,9 @@ login_button = ("xpath", "//span[text()='登录 ']")
 
 # 权限选择页面
 authority_choose = ("xpath", "//div[text()='请选择角色']")
+system_administrator = ("xpath", "//div[text()='系统管理员']")
+safe_administrator = ("xpath", "//div[text()='系统管理员']")
+aduit_administrator = ("xpath", "//div[text()='系统管理员']")
+ordinary_user = ("xpath", "//div[text()='系统管理员']")
+custom_role = ("xpath", "//div[text()='%s']")  # 可以自定义填入角色
+

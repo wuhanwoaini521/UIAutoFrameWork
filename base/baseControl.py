@@ -28,7 +28,10 @@ class BaseControl:
             "name": By.NAME,
             "link_text": By.LINK_TEXT,
             "partial_link_text": By.PARTIAL_LINK_TEXT,
-            "xpath": By.XPATH
+            "xpath": By.XPATH,
+            "class": By.CLASS_NAME,
+            "css": By.CSS_SELECTOR,
+            "tag": By.TAG_NAME
         }
 
     def open_url(self):
