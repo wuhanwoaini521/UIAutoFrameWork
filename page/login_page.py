@@ -32,3 +32,8 @@ class Login_Page:
         """登录按钮"""
         self.baseControl.click(*login_locator.login_button)
         logger.info("点击登录按钮")
+
+    @allure.step("出现报错提示")
+    def show_error_banner(self):
+        self.baseControl.get_text(*login_locator.error_alert)
+

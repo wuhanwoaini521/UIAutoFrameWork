@@ -4,11 +4,13 @@ from time import sleep
 from base.baseControl import BaseControl
 from page.login_page import Login_Page
 from page.authority_choose_page import Authority_Choose_Page
+from tests import *
 from util.choose_driver import Choose_Driver
 import allure
 import pytest
 import os
 from util.read_file import Read_Yaml
+
 
 @allure.epic('登录页测试')
 class Test_Login:
@@ -22,7 +24,7 @@ class Test_Login:
     #     self.authority_choose_page = Authority_Choose_Page(driver)  # 权限选择页面
 
     @allure.title("登录成功测试")
-    @pytest.mark.parametrize("result_list", Read_Yaml(r"C:\Users\Administrator\Desktop\UIAutoFrameWork\datas\login.yml").read_yaml()["login_success"])
+    @pytest.mark.parametrize("result_list", Read_Yaml(login_path).read_yaml()["login_success"])
     def test_login_success(self, driver, result_list):
         """
         登录测试用例
@@ -36,18 +38,18 @@ class Test_Login:
         assert self.authority_choose_page.show_authority() == "请选择角色"
 
     @allure.title("登录失败测试")
-    @pytest.mark.xfail("就是跳过")
-    def test_login_failed(self, driver):
+    @pytest.mark.parametrize("result_list", Read_Yaml(login_path).read_yaml()["login_failed"])
+    def test_login_failed(self, driver, result_list):
         """
         登录测试用例
         :return:
         """
         self.login_page = Login_Page(driver)  # 登录页面
         self.authority_choose_page = Authority_Choose_Page(driver)
-        self.login_page.username_text("wuhan")
-        self.login_page.password_text("123456")
+        self.login_page.username_text(result_list["username"])
+        self.login_page.password_text(result_list["password"])
         self.login_page.click_login_button()
-        assert self.authority_choose_page.show_authority() == "请选择角色1"
+        self.login_page.show_error_banner()
 
     # def teardown_method(self):
     #     sleep(4)

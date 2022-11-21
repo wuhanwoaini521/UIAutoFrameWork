@@ -4,6 +4,7 @@ password_text = ("name", "password")
 login_button = ("xpath", "//span[text()='登录 ']")
 
 # 弹窗
+error_alert = ("xpath", "//p[@class='el-message__content']")
 
 
 # 权限选择页面

@@ -2,6 +2,15 @@ login_success:
   -
     username: wuhan
     password: 123456
+login_failed:
   -
     username: wuhan
     password: 1234567
+login_failed_username:
+  -
+    username: ''
+    password: 123456
+login_failed_password:
+  -
+    username: wuhan
+    password: ''
