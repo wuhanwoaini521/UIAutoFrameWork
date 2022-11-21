@@ -34,7 +34,7 @@ class BaseControl:
             "tag": By.TAG_NAME
         }
 
-    def open_url(self):
+    def open_url(self, url=None):
         """
         打开浏览器
         :param url:
@@ -42,7 +42,10 @@ class BaseControl:
         """
         if not self.base_url:
             raise "请传入url！"
-        self.driver.get(self.base_url)
+        if url:
+            self.base_url = url
+        self.driver.get(self.base_url)  # 进入路径
+        self.driver.maximize_window()  # 窗口最大化
 
     def back(self):
         """

@@ -1,0 +1,7 @@
+login_success:
+  -
+    username: wuhan
+    password: 123456
+  -
+    username: wuhan
+    password: 1234567

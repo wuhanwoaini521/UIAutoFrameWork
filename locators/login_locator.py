@@ -3,6 +3,9 @@ username_text = ("name", "username")
 password_text = ("name", "password")
 login_button = ("xpath", "//span[text()='登录 ']")
 
+# 弹窗
+
+
 # 权限选择页面
 authority_choose = ("xpath", "//div[text()='请选择角色']")
 system_administrator = ("xpath", "//div[text()='系统管理员']")
