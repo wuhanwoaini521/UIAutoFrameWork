@@ -1,3 +1,5 @@
+import time
+
 import pytest
 from util.choose_driver import Choose_Driver
 from util import settings
@@ -19,6 +21,7 @@ def driver():
     baseControl = BaseControl(driver)
     baseControl.open_url()  # 打开浏览器
     yield driver
+    time.sleep(3)
     #关闭driver
     driver.close()
 

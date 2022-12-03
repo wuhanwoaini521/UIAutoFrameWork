@@ -1,0 +1,6 @@
+save_success:
+  -
+    project_name: "6000uv"
+    peak_with: 22
+    slope: 33
+    deal_with_name: autotest

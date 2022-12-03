@@ -1,3 +1,5 @@
+import time
+
 
 def assert_equal(actualResult, expected):
     assert actualResult == expected, "实际结果为:{0}, 预期结果为:{1}".format(actualResult, expected)

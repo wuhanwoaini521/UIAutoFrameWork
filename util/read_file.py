@@ -9,11 +9,11 @@ class Read_Yaml:
 
     def __init__(self, file):
         self.file = file
-        result = yaml.load(open(file), Loader=yaml.SafeLoader)
+        result = yaml.load(open(file, encoding='utf-8'), Loader=yaml.SafeLoader)
         print(json.dumps(result, indent=2))
 
     def read_yaml(self):
-        return yaml.load(open(self.file), Loader=yaml.SafeLoader)
+        return yaml.load(open(self.file, encoding='utf-8'), Loader=yaml.SafeLoader)
 
 
 class Read_Excel:

@@ -6,5 +6,5 @@ import allure
 
 
 if __name__ == '__main__':
-    pytest.main(['-s', '-q', '--clean-alluredir', '--alluredir', 'outFiles/reports/allure-results'])
-    os.system(r"allure generate outFiles/reports/allure-results -o outFiles/reports/allure-result --clean")
+    pytest.main(['-s', '-q', './tests/main_process/test_main.py', '--clean-alluredir', '--alluredir', 'outFiles/reports/allure-results'])
+    # os.system(r"allure generate outFiles/reports/allure-results -o outFiles/reports/allure-result --clean")

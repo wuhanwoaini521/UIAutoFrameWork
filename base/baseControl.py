@@ -86,8 +86,8 @@ class BaseControl:
         """
         try:
             element = WebDriverWait(self.driver, timeout=times, poll_frequency=poll_frequency).until \
-                (lambda x: x.find_element(self.locate_method[locate_method]
-                                          , locator))
+                (EC.visibility_of_element_located((self.locate_method[locate_method]
+                                                   , locator)))
             return element
         except TimeoutException:
             traceback.print_exc()
@@ -105,8 +105,8 @@ class BaseControl:
         """
         try:
             elements = WebDriverWait(self.driver, timeout=times, poll_frequency=poll_frequency).until \
-                (lambda x: x.find_elements(self.locate_method[locate_method]
-                                           , locator))
+                (EC.visibility_of_all_elements_located((self.locate_method[locate_method]
+                                                   , locator)))
             return elements
         except TimeoutException:
             traceback.print_exc()
@@ -162,4 +162,15 @@ class BaseControl:
         """
         text = self.find_element(locate_method, locator).text
         return text
+
+    def scroll_window(self):
+        pass
+
+    def get_current_url(self):
+        """
+        获取当前页面url
+        :return:
+        """
+        current_url = self.driver.current_url
+        return current_url
 
