@@ -5,6 +5,8 @@ login_button = ("xpath", "//span[text()='登录 ']")
 
 # 弹窗
 error_alert = ("xpath", "//p[@class='el-message__content']")
+public_text = ("xpath", "//p[contains(text(),'%s')]")
+redmin_confirm = ("xpath", "//div[@aria-label='提醒']//span[contains(text(),'确定')]")
 
 
 # 权限选择页面

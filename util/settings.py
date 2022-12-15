@@ -3,7 +3,7 @@ ENV = 'test'
 
 # test url test config
 WEB_TEST_BASE_URL = "http://192.168.1.180:9000"
-TIMES = 10
+TIMES = 60
 POLL_FREQUENCY = 0.5
 
 # webdriver
@@ -14,10 +14,13 @@ CHROMEDRIVER = r".\driver\chromedriver.exe"
 FIREFOXDRIVER = r".\driver\.exe"
 
 # mysql
-MYSQL_HOST = ""
-MYSQL_USER = ""
-MYSQL_PASSWORD = ""
-MYSQL_PORT = ""
+MYSQL_HOST = "192.168.1.180"
+MYSQL_USER = "cims"
+MYSQL_PASSWORD = "cims123$%"
+MYSQL_PORT = 3306
+MYSQL_DB_NAME = "cims_db"
+MYSQL_CHARSET = "utf8"
+DB_INIT_PATH = "datas/init.sql"
 
 # mongodb
 MONGODB_HOST = ""

@@ -1,5 +1,6 @@
 import os
 import sys
+from tests.methods_groups.deal_with_method import Deal_With_Method
 
 current_path = os.path.abspath(os.path.dirname(os.path.dirname(__file__)))
 data_path = current_path + os.sep + "datas" + os.sep

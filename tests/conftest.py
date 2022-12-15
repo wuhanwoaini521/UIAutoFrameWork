@@ -8,6 +8,9 @@ from allure_commons.types import AttachmentType
 from PIL import ImageGrab
 from io import BytesIO
 from base.baseControl import BaseControl
+from util.log_control import MyLogger
+
+logger = MyLogger()
 
 
 @pytest.fixture(scope='function')
@@ -16,14 +19,18 @@ def driver():
     统一启动
     :return:
     """
+    logger.info("☆☆☆☆☆启动公用driver☆☆☆☆☆")
     # 打开driver
     driver = Choose_Driver(settings.DRIVER_NAME).choose_driver()
     baseControl = BaseControl(driver)
+    logger.info("☆☆☆☆☆打开浏览器 ☆☆☆☆☆")
     baseControl.open_url()  # 打开浏览器
     yield driver
     time.sleep(3)
     #关闭driver
+    logger.info("☆☆☆☆☆关闭driver☆☆☆☆☆")
     driver.close()
+    driver.quit()
 
 
 @pytest.hookimpl(tryfirst=True, hookwrapper=True)

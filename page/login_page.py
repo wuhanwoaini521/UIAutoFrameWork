@@ -1,3 +1,5 @@
+from selenium.common import NoSuchElementException
+
 from locators import login_locator
 from base.baseControl import BaseControl
 from util.log_control import MyLogger
@@ -36,4 +38,16 @@ class Login_Page:
     @allure.step("出现报错提示")
     def show_error_banner(self):
         self.baseControl.get_text(*login_locator.error_alert)
+
+    @allure.step("查看是否有密码到期提醒")
+    def show_password_due_to_remind_banner(self, text):
+        locator_method, locator = login_locator.public_text
+        while True:
+            try:
+                if self.baseControl.find_element(locator_method, locator % text):
+                    self.baseControl.click(*login_locator.redmin_confirm)
+                    logger.info("点击密码到期提醒弹窗")
+                    break
+            except NoSuchElementException:
+                break
 

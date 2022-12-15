@@ -33,4 +33,7 @@ class Login_Common:
         self.login_page.username_text(result_list["username"])
         self.login_page.password_text(result_list["password"])
         self.login_page.click_login_button()
+
+        self.login_page.show_password_due_to_remind_banner("密码将要到期请修改密码")  # 试试
+
         self.authority_choose_page.click_system_role()

@@ -1,5 +1,8 @@
 import yaml
 import json
+from util.log_control import MyLogger
+
+logger = MyLogger()
 
 
 class Read_Yaml:
@@ -10,10 +13,17 @@ class Read_Yaml:
     def __init__(self, file):
         self.file = file
         result = yaml.load(open(file, encoding='utf-8'), Loader=yaml.SafeLoader)
-        print(json.dumps(result, indent=2))
 
     def read_yaml(self):
-        return yaml.load(open(self.file, encoding='utf-8'), Loader=yaml.SafeLoader)
+        result = yaml.load(open(self.file, encoding='utf-8'), Loader=yaml.SafeLoader)
+        dumps_result = json.dumps(result, indent=2)
+
+        logger.info("-->> 读取文件开始 -->> %s " % self.file)
+
+        logger.info("-->> 文件内容 -->> %s " % dumps_result)
+
+        logger.info("-->> 读取文件结束  -->> ")
+        return result
 
 
 class Read_Excel:

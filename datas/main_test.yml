@@ -1,6 +1,149 @@
-save_success:
+base_save_success:
   -
     project_name: "6000uv"
     peak_with: 22
     slope: 33
-    deal_with_name: autotest
+    deal_with_name: "autotest"
+constituent_save_success:
+  -
+    project_name: "6000uv"
+    peak_with: 22
+    slope: 33
+    constituent_name: "测试峰1"
+    constituent_param: 1
+    constituent_time: 1
+    deal_with_name: "autotest2"
+    report_name: "autoreport"
+single_global_success: # 单全局积分
+   -
+      project_name: "6000uv"
+      peak_with: 22
+      slope: 33
+      deal_with_name: "sigleGolbal"
+      data1: 601 # 数据量
+      data2: 259 # 进样编号
+      data3: 254 # 波长
+      report_name: "autoreport"
+global_constituent_success: # 全局积分 + 组分
+   -
+      project_name: "6000uv"
+      peak_with: 22
+      slope: 33
+      constituent_name: "自动峰1"
+      constituent_param: 3
+      constituent_time: 1
+      deal_with_name: "globalConstituent"
+      report_name: "autoreport"
+global_constituent_system_success: # 全局积分 + 组分 + 系统适应性
+   -
+      project_name: "6000uv"
+      peak_with: 22
+      slope: 33
+      constituent_name: "自动峰1"
+      constituent_param: 3
+      constituent_time: 1
+      empty_volume_time: 1
+      suitparams_column_length: 1
+      baseline_noise_max: 1
+      baseline_drift_max: 1
+      baseline_running_time: 1
+      baseline_start_time: 1
+      baseline_end_time: 1
+      computer_baseline_start_time: 1
+      computer_baseline_end_time: 1
+      pda_slice_width: 1
+      deal_with_name: "gConstituentSystem"
+      report_name: "autoreport"
+global_constituent_system_pda_success: # 全局积分 + 组分 + 系统适应性 + pda
+   -
+      project_name: "6000uv"
+      peak_with: 22
+      slope: 33
+      constituent_name: "自动峰1"
+      constituent_param: 3
+      constituent_time: 1
+      empty_volume_time: 1
+      suitparams_column_length: 1
+      baseline_noise_max: 1
+      baseline_drift_max: 1
+      baseline_running_time: 1
+      baseline_start_time: 1
+      baseline_end_time: 1
+      computer_baseline_start_time: 1
+      computer_baseline_end_time: 1
+      pda_slice_width: 1
+      wavelength: 222
+      wavelength_start: 210
+      wavelength_end: 400
+      spectral_library_name: "autoTest光谱库"
+      deal_with_name: "gConsSystemPda"
+      report_name: "autoreport"
+single_subsection_success: # 分段积分
+   -
+      project_name: "6000uv"
+      order_start_time: 0
+      order_end_time: 30
+      order_peak_width: 22
+      order_slope: 33
+      deal_with_name: "singleSubsection"
+      report_name: "autoreport"
+subsection_constituent_success: # 分段积分 + 组分
+   -
+      project_name: "6000uv"
+      order_start_time: 0
+      order_end_time: 30
+      order_peak_width: 22
+      order_slope: 33
+      constituent_name: "自动峰1"
+      constituent_param: 3
+      constituent_time: 1
+      deal_with_name: "sConstituent"
+      report_name: "autoreport"
+subsection_constituent_system_success: # 分段积分 + 组分 + 系统适应性
+   -
+      project_name: "6000uv"
+      order_start_time: 0
+      order_end_time: 30
+      order_peak_width: 22
+      order_slope: 33
+      constituent_name: "自动峰1"
+      constituent_param: 3
+      constituent_time: 1
+      empty_volume_time: 1
+      suitparams_column_length: 1
+      baseline_noise_max: 1
+      baseline_drift_max: 1
+      baseline_running_time: 1
+      baseline_start_time: 1
+      baseline_end_time: 1
+      computer_baseline_start_time: 1
+      computer_baseline_end_time: 1
+      pda_slice_width: 1
+      deal_with_name: "sConstituentSystem"
+      report_name: "autoreport"
+subsection_constituent_system_pda_success: # 分段积分 + 组分 + 系统适应性 +  pda
+   -
+      project_name: "6000uv"
+      order_start_time: 0
+      order_end_time: 30
+      order_peak_width: 22
+      order_slope: 33
+      constituent_name: "自动峰1"
+      constituent_param: 3
+      constituent_time: 1
+      empty_volume_time: 1
+      suitparams_column_length: 1
+      baseline_noise_max: 1
+      baseline_drift_max: 1
+      baseline_running_time: 1
+      baseline_start_time: 1
+      baseline_end_time: 1
+      computer_baseline_start_time: 1
+      computer_baseline_end_time: 1
+      pda_slice_width: 1
+      wavelength: 222
+      wavelength_start: 210
+      wavelength_end: 400
+      spectral_library_name: "autoTest"
+      deal_with_name: "sConsSystemPda"
+      report_name: "autoreport"

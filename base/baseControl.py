@@ -103,10 +103,14 @@ class BaseControl:
         :param poll_frequency:
         :return:
         """
+        elemets_list = []
         try:
             elements = WebDriverWait(self.driver, timeout=times, poll_frequency=poll_frequency).until \
                 (EC.visibility_of_all_elements_located((self.locate_method[locate_method]
-                                                   , locator)))
+                                                        , locator)))
+            # elements = WebDriverWait(self.driver, timeout=times, poll_frequency=poll_frequency).until \
+            #         (lambda x: x.find_elements(self.locate_method[locate_method]
+            #                                                     , locator))
             return elements
         except TimeoutException:
             traceback.print_exc()
@@ -140,7 +144,20 @@ class BaseControl:
         :param locator:
         :return:
         """
-        self.find_element(locate_method, locator).click()
+        # self.click_element(locate_method, locator).click()
+        element = self.click_element(locate_method, locator)
+        self.driver.execute_script("arguments[0].click()", element)
+
+    def click_text(self, locate_method, locator):
+        """
+        点击内容
+        :param locate_method:
+        :param locator:
+        :return:
+        """
+        # self.click_element(locate_method, locator).click()
+        element = self.click_element(locate_method, locator)
+        self.driver.execute_script("arguments[0].click()", element)
 
     def alert(self):
         """
@@ -163,8 +180,16 @@ class BaseControl:
         text = self.find_element(locate_method, locator).text
         return text
 
-    def scroll_window(self):
-        pass
+    def scroll_window(self, locate_method, locator):
+        """
+        元素滚动到页面
+        :param locate_method:
+        :param locator:
+        :return:
+        """
+        element = self.find_element(locate_method, locator)
+        js_element = "arguments[0].scrollIntoView();"
+        self.driver.execute_script(js_element, element)
 
     def get_current_url(self):
         """
@@ -174,3 +199,21 @@ class BaseControl:
         current_url = self.driver.current_url
         return current_url
 
+    def click_element(self, locate_method, locator, times=times, poll_frequency=poll_frequency):
+        """
+        查找元素
+        :param locate_method:
+        :param locator:
+        :param times:
+        :param poll_frequency:
+        :return:
+        """
+        try:
+            element = WebDriverWait(self.driver, timeout=times, poll_frequency=poll_frequency).until \
+                (EC.element_to_be_clickable((self.locate_method[locate_method]
+                                                   , locator)))
+            return element
+        except TimeoutException:
+            traceback.print_exc()
+            allure.attach(self.driver.get_screenshot_as_png(), "失败截图", allure.attachment_type.PNG)
+            raise TimeoutException(msg="元素未找到，超时！")

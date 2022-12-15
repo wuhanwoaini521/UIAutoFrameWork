@@ -34,6 +34,7 @@ tab_data_export = ("xpath", "//span[text()='导出']")
 tab_data_lock = ("xpath", "//span[text()='锁定设置']")
 tab_data_extract = ("xpath", "//span[text()='提取2D']")
 tab_data_delete = ("xpath", "//span[text()='删除']")
+first_raw_data_checkbox = ("xpath", "//tbody/tr[1]/td[1]/div[1]/label[1]/span[1]/span[1]")
 
 # 方法tab
 tab_method_upload = ("xpath", "//span[text()='上传至用户方法库']")
@@ -51,7 +52,7 @@ tab_method_create_method_deal_with_method = ("xpath", "//li[text()='处理方法
 ## 方法列表页的名称
 method_list_name = ("xpath", "//span[text()='%s']")
 tab_method_list_name = ("id", "viewitems-components-method-list-method-name")  # 方法页列表所有名称
-
+curve_fitting = ("xpath", "//img[@id='viewitems-components-method-list-associative-curve']")  # 方法页-曲线拟合图标
 
 # 曲线tab
 tab_curve_sequence = ("xpath", "//span[text()='序列']")
@@ -70,3 +71,7 @@ tab_result_publish = ("xpath", "//span[text()='出版报告']")
 tab_result_export = ("xpath", "//span[text()='导出']")
 tab_result_lock = ("xpath", "//span[text()='锁定设置']")
 tab_result_delete = ("xpath", "//span[text()='删除']")
+
+
+# 页面loading
+loading = ("xpath", "//p[text()='正在处理，请稍等......']")

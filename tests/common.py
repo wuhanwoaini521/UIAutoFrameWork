@@ -22,7 +22,7 @@ class Common:
     def __init__(self):
         self.authority_choose_page = None
         self.login_page = None
-        self. project_details_page = None
+        self.project_details_page = None
 
     @allure.step("获取方法页所有方法名称")
     def read_method_list(self, locator):
@@ -33,3 +33,13 @@ class Common:
             method_name.append(text)
 
         return method_name
+
+    @allure.step("返回结果tab页的checkbox")
+    def read_result_list(self, locator):
+        result_checkbox = []
+
+        for ele in locator:
+            result_checkbox.append(ele)
+
+        print(result_checkbox)
+        return result_checkbox
