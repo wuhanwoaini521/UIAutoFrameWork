@@ -16,7 +16,7 @@ FIREFOXDRIVER = r".\driver\.exe"
 # mysql
 MYSQL_HOST = "192.168.1.180"
 MYSQL_USER = "cims"
-MYSQL_PASSWORD = "cims123$%"
+MYSQL_PASSWORD = ""
 MYSQL_PORT = 3306
 MYSQL_DB_NAME = "cims_db"
 MYSQL_CHARSET = "utf8"
