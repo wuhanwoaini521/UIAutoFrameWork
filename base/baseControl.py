@@ -90,7 +90,7 @@ class BaseControl:
                                                    , locator)))
             return element
         except TimeoutException:
-            traceback.print_exc()
+            # traceback.print_exc()
             allure.attach(self.driver.get_screenshot_as_png(), "失败截图", allure.attachment_type.PNG)
             raise TimeoutException(msg="元素未找到，超时！")
 

@@ -219,7 +219,7 @@ class New_Method_Page:
         """下拉框自定义选择内容"""
         locator_method, locator = new_deal_with_locator.open_constituent_y
         self.baseControl.click(locator_method, locator % param)
-        logger.info("下拉框自定义选择内容" % param )
+        logger.info("下拉框自定义选择内容" % param)
 
     ######系统适应性tab####################################################################
 

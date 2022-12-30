@@ -2,7 +2,7 @@
 ENV = 'test'
 
 # test url test config
-WEB_TEST_BASE_URL = "http://192.168.1.180:9000"
+WEB_TEST_BASE_URL = "http://localhost:9000"
 TIMES = 60
 POLL_FREQUENCY = 0.5
 
@@ -14,7 +14,7 @@ CHROMEDRIVER = r".\driver\chromedriver.exe"
 FIREFOXDRIVER = r".\driver\.exe"
 
 # mysql
-MYSQL_HOST = "192.168.1.180"
+MYSQL_HOST = "localhost"
 MYSQL_USER = "cims"
 MYSQL_PASSWORD = "cims123$%"
 MYSQL_PORT = 3306

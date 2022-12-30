@@ -26,6 +26,17 @@ class Results_List_Page:
         elements.click()
         logger.info("点击结果列表的第一个结果checkbox")
 
+    @allure.step("结果列表页 - checkbox")
+    def click_result_list_check_box(self, param):
+        """选择任意一个结果"""
+        locator_method, locator = results_list_locator.result_list_check_box
+        elements = self.baseControl.find_elements(locator_method, locator)
+        ele = []
+        for i in elements:
+            ele.append(i)
+        ele[param].click()
+        logger.info("结果列表页 - checkbox")
+
     @allure.step("点击出版报告按钮")
     def click_report_result_button(self):
         """点击出版报告按钮"""
@@ -64,3 +75,30 @@ class Results_List_Page:
             ele.append(i)
         ele[index].click()
 
+    @allure.step("点击结果详情页面 - 出版报告 - 下拉框")
+    def click_info_report_list_button(self):
+        """点击结果详情页面 - 出版报告 - 下拉框"""
+        locator_method, locator = results_list_locator.info_report_list
+        self.baseControl.click(locator_method, locator)
+        logger.info("点击结果详情页面 - 出版报告 - 下拉框")
+
+    @allure.step("点击结果详情页面 - 出版报告 - 根据出版报告名选择出版报告")
+    def click_info_all_report_name(self, name):
+        """点点击结果详情页面 - 出版报告 - 根据出版报告名选择出版报告"""
+        locator_method, locator = results_list_locator.info_all_report_name
+        self.baseControl.click(locator_method, locator % name)
+        logger.info("点击结果详情页面 - 出版报告 - 选择出版报告 %s " % name)
+
+    @allure.step("点击结果详情页面 - 出版报告 - 取消按钮")
+    def click_info_report_cancel(self):
+        """点点击结果详情页面 - 出版报告 - 取消按钮"""
+        locator_method, locator = results_list_locator.info_report_cancel
+        self.baseControl.click(locator_method, locator)
+        logger.info("点击结果详情页面 - 出版报告 - 取消按钮")
+
+    @allure.step("点击结果详情页面 - 出版报告 - 确定按钮")
+    def click_info_report_confirm(self):
+        """点击结果详情页面 - 出版报告 - 确定按钮"""
+        locator_method, locator = results_list_locator.info_report_confirm
+        self.baseControl.click(locator_method, locator)
+        logger.info("点击结果详情页面 - 出版报告 - 确定按钮")

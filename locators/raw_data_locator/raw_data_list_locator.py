@@ -15,3 +15,7 @@ view_the_integral_result_save = ("xpath", "//div[contains(text(),'查看积分�
                                           "@class='el-dialog__footer']//span[text()='保存']")
 # 模糊匹配数据
 view_the_integral_result_datas = ("xpath", "//span[contains(text(),'%s')]")
+
+# 原始数据列表，名称列表
+raw_data_list_names = ("id", "viewitems-components-basicdata-sample-name")
+

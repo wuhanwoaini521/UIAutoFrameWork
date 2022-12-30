@@ -1,4 +1,4 @@
-from selenium.common import NoSuchElementException
+from selenium.common import NoSuchElementException, TimeoutException
 
 from locators import login_locator
 from base.baseControl import BaseControl
@@ -48,6 +48,7 @@ class Login_Page:
                     self.baseControl.click(*login_locator.redmin_confirm)
                     logger.info("点击密码到期提醒弹窗")
                     break
-            except NoSuchElementException:
+            except (NoSuchElementException, TimeoutException):
+                logger.info("没有密码到期提醒弹窗！")
                 break
 
