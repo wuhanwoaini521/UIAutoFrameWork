@@ -152,3 +152,4 @@ class Test_main:
         self.raw_data_detail_page.click_constituent_tab()
         self.raw_data_detail_page.click_component_order_none()
         self.raw_data_detail_page.input_accumulate_match_type("线性过原点")
+
