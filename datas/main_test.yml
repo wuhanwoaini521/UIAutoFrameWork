@@ -1,12 +1,12 @@
 base_save_success:
   -
-    project_name: "6000uv"
+    project_name: "1229备份测试"
     peak_with: 22
     slope: 33
     deal_with_name: "autotest"
 constituent_save_success:
   -
-    project_name: "6000uv"
+    project_name: "1229备份测试"
     peak_with: 22
     slope: 33
     constituent_name: "测试峰1"
@@ -16,7 +16,7 @@ constituent_save_success:
     report_name: "autoreport"
 single_global_success: # 单全局积分
    -
-      project_name: "6000uv"
+      project_name: "1229备份测试"
       peak_with: 22
       slope: 33
       deal_with_name: "sigleGolbal"
@@ -26,7 +26,7 @@ single_global_success: # 单全局积分
       report_name: "autoreport"
 global_constituent_success: # 全局积分 + 组分
    -
-      project_name: "6000uv"
+      project_name: "1229备份测试"
       peak_with: 22
       slope: 33
       constituent_name: "自动峰1"
@@ -36,7 +36,7 @@ global_constituent_success: # 全局积分 + 组分
       report_name: "autoreport"
 global_constituent_system_success: # 全局积分 + 组分 + 系统适应性
    -
-      project_name: "6000uv"
+      project_name: "1229备份测试"
       peak_with: 22
       slope: 33
       constituent_name: "自动峰1"
@@ -56,7 +56,7 @@ global_constituent_system_success: # 全局积分 + 组分 + 系统适应性
       report_name: "autoreport"
 global_constituent_system_pda_success: # 全局积分 + 组分 + 系统适应性 + pda
    -
-      project_name: "6000uv"
+      project_name: "1229备份测试"
       peak_with: 22
       slope: 33
       constituent_name: "自动峰1"
@@ -80,7 +80,7 @@ global_constituent_system_pda_success: # 全局积分 + 组分 + 系统适应性
       report_name: "autoreport"
 single_subsection_success: # 分段积分
    -
-      project_name: "6000uv"
+      project_name: "1229备份测试"
       order_start_time: 0
       order_end_time: 30
       order_peak_width: 22
@@ -89,7 +89,7 @@ single_subsection_success: # 分段积分
       report_name: "autoreport"
 subsection_constituent_success: # 分段积分 + 组分
    -
-      project_name: "6000uv"
+      project_name: "1229备份测试"
       order_start_time: 0
       order_end_time: 30
       order_peak_width: 22
@@ -101,7 +101,7 @@ subsection_constituent_success: # 分段积分 + 组分
       report_name: "autoreport"
 subsection_constituent_system_success: # 分段积分 + 组分 + 系统适应性
    -
-      project_name: "6000uv"
+      project_name: "1229备份测试"
       order_start_time: 0
       order_end_time: 30
       order_peak_width: 22
@@ -123,7 +123,7 @@ subsection_constituent_system_success: # 分段积分 + 组分 + 系统适应性
       report_name: "autoreport"
 subsection_constituent_system_pda_success: # 分段积分 + 组分 + 系统适应性 +  pda
    -
-      project_name: "6000uv"
+      project_name: "1229备份测试"
       order_start_time: 0
       order_end_time: 30
       order_peak_width: 22
