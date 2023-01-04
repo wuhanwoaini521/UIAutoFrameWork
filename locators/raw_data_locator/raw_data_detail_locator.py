@@ -49,7 +49,7 @@ order_event_value = ("xpath", "//input[@id='viewitemscom-components-accumulate-s
 
 # 组分tab
 # 添加组分参数
-component_order_none = ("css", "#viewitemscom-components-accumulate-subsection-order-none")
+component_order_none = ("css", "#viewitemscom-components-accumulate-subsection-order-none")  # 这个定位重复，所以需要用数组下标
 # 组分名称
 accumulate_component_name = ("xpath", "//input[@id='viewitemscom-components-accumulate-component-name']")
 # 匹配类型
