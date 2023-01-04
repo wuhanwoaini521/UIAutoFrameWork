@@ -103,7 +103,6 @@ class Test_main:
         self.method_tab_page.input_create_curve_unit("q")
         self.method_tab_page.click_create_curve_confirm()
 
-
         # # 第一条原始数据选择方法处理
         # self.public_page.choose_first_raw_data_deal(input_param["deal_with_name"])
         # 处理并定量
