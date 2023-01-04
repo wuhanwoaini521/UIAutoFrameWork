@@ -132,26 +132,26 @@ class Test_main:
         # self.raw_data_detail_page.input_order_slope(11)
 
         # 点击分段积分
-        # self.raw_data_detail_page.click_integral_subsection_order()
-        # self.raw_data_detail_page.click_subsection_order_none()
-        # self.raw_data_detail_page.input_subsection_order_start_time(1)
-        # self.raw_data_detail_page.input_subsection_order_end_time(10)
-        # self.raw_data_detail_page.input_subsection_order_peak_width(22)
-        # self.raw_data_detail_page.input_subsection_order_slope(22)
-        #
-        # self.raw_data_detail_page.click_event_subsection_order_none()  # 添加积分事件
-        #
-        # self.raw_data_detail_page.input_event_start_time(11)
-        # self.raw_data_detail_page.input_event_end_time(22)
-        # self.raw_data_detail_page.click_order_event_type()
-        # self.raw_data_detail_page.input_choose_event_name("设定最小高度")
-        # self.raw_data_detail_page.input_order_event_value(999)
+        self.raw_data_detail_page.click_integral_subsection_order()
+        self.raw_data_detail_page.click_subsection_order_none()
+        self.raw_data_detail_page.input_subsection_order_start_time(1)
+        self.raw_data_detail_page.input_subsection_order_end_time(10)
+        self.raw_data_detail_page.input_subsection_order_peak_width(22)
+        self.raw_data_detail_page.input_subsection_order_slope(22)
+
+        self.raw_data_detail_page.click_event_subsection_order_none()  # 添加积分事件
+
+        self.raw_data_detail_page.input_event_start_time(11)
+        self.raw_data_detail_page.input_event_end_time(22)
+        self.raw_data_detail_page.click_order_event_type()
+        self.raw_data_detail_page.input_choose_event_name("设定最小高度")
+        self.raw_data_detail_page.input_order_event_value(999)
 
         # self.raw_data_detail_page.click_save_button()
 
         # 点击组分tab
-        self.raw_data_detail_page.click_constituent_tab()
-        self.raw_data_detail_page.click_component_order_none()
-        self.raw_data_detail_page.input_accumulate_match_type("线性过原点")
+        # self.raw_data_detail_page.click_constituent_tab()
+        # self.raw_data_detail_page.click_component_order_none()
+        # self.raw_data_detail_page.input_accumulate_match_type("线性过原点")
 
 
