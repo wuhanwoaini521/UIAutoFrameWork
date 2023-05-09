@@ -15,6 +15,13 @@ class List_Project_Page:
         self.driver = driver
         self.baseControl = BaseControl(self.driver)
 
+    # 公用
+    @allure.step("点击{description}按钮")
+    def click_button(self, button_name, description):
+        """点击按钮"""
+        self.baseControl.click(*button_name)
+        logger.info("点击【%s】按钮" % description)
+
     @allure.step("点击新建项目按钮")
     def click_create_project(self):
         """新建项目"""

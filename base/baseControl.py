@@ -166,7 +166,7 @@ class BaseControl:
         """
         pass
 
-    def switch_windoww(self):
+    def switch_window(self):
         """
         切换页面句柄
         :return:
