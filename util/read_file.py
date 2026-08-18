@@ -1,38 +1,37 @@
-import yaml
+"""文件读取工具 📖.
+
+支持读取 YAML 配置文件，并解析为字典。
+"""
+
 import json
+
+import yaml
+
 from util.log_control import MyLogger
 
 logger = MyLogger()
 
 
 class Read_Yaml:
-    """
-        读取yaml文件的类
-        """
+    """读取 YAML 文件并转换为 Python 对象。"""
 
     def __init__(self, file):
         self.file = file
-        result = yaml.load(open(file, encoding='utf-8'), Loader=yaml.SafeLoader)
 
     def read_yaml(self):
-        result = yaml.load(open(self.file, encoding='utf-8'), Loader=yaml.SafeLoader)
-        dumps_result = json.dumps(result, indent=2)
-
+        """读取 YAML 文件内容并返回解析结果。"""
         logger.info("-->> 读取文件开始 -->> %s " % self.file)
-
-        logger.info("-->> 文件内容 -->> %s " % dumps_result)
-
+        with open(self.file, encoding="utf-8") as f:
+            result = yaml.load(f, Loader=yaml.SafeLoader)
+        logger.info("-->> 文件内容 -->> %s " % json.dumps(result, indent=2, ensure_ascii=False))
         logger.info("-->> 读取文件结束  -->> ")
         return result
 
 
-class Read_Excel:
+if __name__ == "__main__":
+    import os
 
-    def __init__(self):
-        pass
-
-
-if __name__ == '__main__':
-    read_yaml = Read_Yaml(r"C:\Users\Administrator\Desktop\UIAutoFrameWork\datas\login.yml")
-    dic = read_yaml.read_yaml()
-    print(dic["login_success"])
+    demo_file = os.path.join(os.path.dirname(__file__), "..", "datas", "login.yml")
+    read_yaml = Read_Yaml(demo_file)
+    data = read_yaml.read_yaml()
+    print(data)

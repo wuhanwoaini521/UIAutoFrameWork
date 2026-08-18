@@ -1,0 +1,32 @@
+# Python 🐍
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+env/
+.pytest_cache/
+
+# IDE 💻
+.idea/
+.vscode/
+*.iml
+
+# 浏览器驱动 🌐
+driver/
+*.exe
+
+# 测试产物 🧪
+outFiles/
+allure-results/
+allure-report/
+*.logs
+*.log
+
+# 系统文件 🖥️
+.DS_Store
+Thumbs.db
+
+# 环境/敏感信息 🔐
+.env
+config_private.py

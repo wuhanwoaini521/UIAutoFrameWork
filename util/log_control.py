@@ -1,45 +1,52 @@
+"""日志控制器 📝.
+
+基于 loguru，支持控制台彩色输出 + 文件按大小轮转（rotation）。
+"""
+
 import datetime
-import logging
 import os
 import sys
-import time
+from pathlib import Path
 
 from loguru import logger
 
-current_directory = os.path.dirname(os.path.abspath(__file__))
-root_path = os.path.abspath(os.path.dirname(current_directory) + os.path.sep + ".")
-sys.path.append(root_path)
+ROOT_PATH = Path(__file__).resolve().parent.parent
 
 today = datetime.datetime.now().strftime("%Y_%m_%d")
-my_log_file_path = "./outFiles/logs/"
-log_path = os.path.join(root_path + my_log_file_path + "log_" + today + ".logs")
+log_dir = ROOT_PATH / "outFiles" / "logs"
+log_dir.mkdir(parents=True, exist_ok=True)
+log_path = log_dir / f"log_{today}.log"
 
 
 class MyLogger:
+    """loguru 日志封装，提供 info/debug/warning/error 便捷方法。"""
 
-    def __init__(self, my_log_path=log_path):
+    def __init__(self, my_log_path: Path = log_path):
         self.logger = logger
-        # 清空所有设置
+        # 清空所有设置，避免重复注册 handler
         self.logger.remove()
-        # 添加控制台输出的格式,sys.stdout为输出到屏幕;关于这些配置还需要自定义请移步官网查看相关参数说明
-        self.logger.add(sys.stdout,
-                        colorize=True,
-                        format="<green>{time:YYYYMMDD HH:mm:ss}</green> | "  # 颜色>时间
-                               "{process.name} | "  # 进程名
-                               "{thread.name} | "  # 进程名
-                               "<cyan>{module}</cyan>.<cyan>{function}</cyan>"  # 模块名.方法名
-                               ":<cyan>{line}</cyan> | "  # 行号
-                               "<level>{level}</level>: "  # 等级
-                               "<level>{message}</level>",  # 日志内容
-
-                        )
-        # 输出到文件的格式,注释下面的add',则关闭日志写入
-        self.logger.add(my_log_path, level='DEBUG',
-                        format='{time:YYYYMMDD HH:mm:ss} - '  # 时间
-                               "{process.name} | "  # 进程名
-                               "{thread.name} | "  # 进程名
-                               '{module}.{function}:{line} - {level} -{message}',  # 模块名.方法名:行号
-                        rotation="10 MB")
+        # 控制台输出
+        self.logger.add(
+            sys.stdout,
+            colorize=True,
+            format="<green>{time:YYYYMMDD HH:mm:ss}</green> | "
+                   "{process.name} | "
+                   "{thread.name} | "
+                   "<cyan>{module}</cyan>.<cyan>{function}</cyan>"
+                   ":<cyan>{line}</cyan> | "
+                   "<level>{level}</level>: "
+                   "<level>{message}</level>",
+        )
+        # 文件输出（按 10MB 轮转）
+        self.logger.add(
+            str(my_log_path),
+            level="DEBUG",
+            format='{time:YYYYMMDD HH:mm:ss} - '
+                   "{process.name} | "
+                   "{thread.name} | "
+                   '{module}.{function}:{line} - {level} - {message}',
+            rotation="10 MB",
+        )
 
     def get_logger(self):
         return self.logger
@@ -60,10 +67,5 @@ class MyLogger:
 my_logger = MyLogger().get_logger()
 
 
-if __name__ == '__main__':
-    # ss()
-    print(log_path,
-          root_path)
-
-
-
+if __name__ == "__main__":
+    logger.info("日志路径: %s" % log_path)

@@ -41,7 +41,7 @@ class BaseControl:
         :return:
         """
         if not self.base_url:
-            raise "请传入url！"
+            raise ValueError("请传入url！")
         if url:
             self.base_url = url
         self.driver.get(self.base_url)  # 进入路径
@@ -103,14 +103,10 @@ class BaseControl:
         :param poll_frequency:
         :return:
         """
-        elemets_list = []
         try:
             elements = WebDriverWait(self.driver, timeout=times, poll_frequency=poll_frequency).until \
                 (EC.visibility_of_all_elements_located((self.locate_method[locate_method]
                                                         , locator)))
-            # elements = WebDriverWait(self.driver, timeout=times, poll_frequency=poll_frequency).until \
-            #         (lambda x: x.find_elements(self.locate_method[locate_method]
-            #                                                     , locator))
             return elements
         except TimeoutException:
             traceback.print_exc()
@@ -139,23 +135,21 @@ class BaseControl:
 
     def click(self, locate_method, locator):
         """
-        点击内容
+        点击内容（通过 JS 强制点击，兼容被遮挡元素）
         :param locate_method:
         :param locator:
         :return:
         """
-        # self.click_element(locate_method, locator).click()
         element = self.click_element(locate_method, locator)
         self.driver.execute_script("arguments[0].click()", element)
 
     def click_text(self, locate_method, locator):
         """
-        点击内容
+        点击指定文本所在元素（兼容被遮挡元素，通过 JS 强制点击）
         :param locate_method:
         :param locator:
         :return:
         """
-        # self.click_element(locate_method, locator).click()
         element = self.click_element(locate_method, locator)
         self.driver.execute_script("arguments[0].click()", element)
 
