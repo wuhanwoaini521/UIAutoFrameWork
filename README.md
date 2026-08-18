@@ -33,7 +33,8 @@
 git clone https://github.com/wuhanwoaini521/UIAutoFrameWork.git
 cd UIAutoFrameWork
 
-pip install -r requirements.txt
+# 使用 uv 安装依赖（自动创建 .venv）
+uv sync
 ```
 
 > ⚠️ 需要自行准备 **Chrome 浏览器** 并将对应版本的 `chromedriver.exe` 放入 `driver/` 目录（已加入 .gitignore）。
@@ -89,7 +90,8 @@ UIAutoFrameWork/
 │   ├── settings.py           # ⚙️ 全局配置
 │   └── sql_control.py        # 🗄️ 数据库访问
 ├── main.py                   # 🚀 入口（初始化数据 + 跑用例）
-└── requirements.txt          # 📦 依赖清单
+├── pyproject.toml            # uv 依赖管理
+└── uv.lock                   # uv 锁定的依赖版本
 ```
 
 ## 🏗️ 如何新增一个测试
