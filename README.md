@@ -9,9 +9,11 @@
 
 - 🏗️ **PO 模式**：`page/` 页面对象 + `locators/` 元素定位分离，维护更清晰
 - 🎯 **灵活定位**：`baseControl` 封装 8 种定位方式（id / name / xpath / css ...）
+- 🌐 **驱动免下载**：基于 Selenium Manager 自动管理 chromedriver，也支持手动指定路径
+- ⚙️ **环境变量配置**：所有配置支持 `UIAF_` 前缀环境变量覆盖，敏感信息不落代码
 - 📝 **全量日志**：基于 loguru 的控制台 + 文件双输出，按大小轮转
-- 📸 **失败留痕**：断言失败自动截图并接入 allure 报告
-- 🗄️ **数据支撑**：内置 MySQL 连接封装与 YAML 测试数据驱动
+- 📸 **失败留痕**：断言失败自动用 driver 截图并接入 allure 报告
+- 🗄️ **数据支撑**：内置 MySQL 连接封装与 YAML 测试数据驱动，初始化数据不再明文暴露密码
 - 🧵 **并行执行**：集成 pytest-xdist 支持用例并发
 
 ## 🛠️ 技术栈
@@ -26,6 +28,7 @@
 | 📝 loguru | 日志系统 |
 | 🗄️ pymysql | MySQL 访问 |
 | 🎵 PyYAML | 测试数据 |
+| 🌐 Selenium Manager | 自动管理浏览器驱动 |
 
 ## 📦 安装
 
@@ -37,18 +40,24 @@ cd UIAutoFrameWork
 uv sync
 ```
 
-> ⚠️ 需要自行准备 **Chrome 浏览器** 并将对应版本的 `chromedriver.exe` 放入 `driver/` 目录（已加入 .gitignore）。
+> 💡 **无需手动下载 chromedriver！** 驱动路径留空时由 Selenium Manager（Selenium >= 4.6 内置）自动匹配；也可通过 `UIAF_CHROMEDRIVER` 环境变量或 `settings.py` 指定本地驱动。
 
 ## 🚀 使用
 
 ### 配置环境
 
-编辑 `util/settings.py`：
+所有配置项都支持 `UIAF_` 前缀的环境变量覆盖 🔧，例如：
+
+```bash
+UIAF_WEB_TEST_BASE_URL=http://your-host python main.py
+```
+
+或直接编辑 `util/settings.py`：
 
 ```python
-WEB_TEST_BASE_URL = "http://39.107.225.40:7777"   # 被测系统地址
-DRIVER_NAME = "chrome"                            # 浏览器类型
-MYSQL_HOST = "..."                                # 数据库信息
+WEB_TEST_BASE_URL = "http://your-host"   # 被测系统地址
+DRIVER_NAME = "chrome"                   # 浏览器类型
+MYSQL_HOST = "..."                       # 数据库信息（密码建议走环境变量 🔐）
 ```
 
 ### 运行全部测试
@@ -58,6 +67,8 @@ MYSQL_HOST = "..."                                # 数据库信息
 python -m pytest -s -q
 # 或仅运行主流程
 python main.py
+# 跳过数据库初始化（被测库不可达时）
+UIAF_SKIP_DB_INIT=1 python main.py
 ```
 
 ### 生成 Allure 报告

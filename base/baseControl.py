@@ -1,15 +1,10 @@
-from functools import wraps
-
 import allure
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 from selenium.common.exceptions import TimeoutException
-import traceback
 import util.settings as settings
 from util.log_control import MyLogger
-import datetime
-import time
 
 
 class BaseControl:
@@ -109,8 +104,7 @@ class BaseControl:
                                                         , locator)))
             return elements
         except TimeoutException:
-            traceback.print_exc()
-            # allure.attach(self.driver.get_screenshot_as_png(), "失败截图", allure.attachment_type.PNG)
+            allure.attach(self.driver.get_screenshot_as_png(), "失败截图", allure.attachment_type.PNG)
             raise TimeoutException(msg="元素未找到，超时！")
 
     def clear_text(self, locate_method, locator):
@@ -208,6 +202,5 @@ class BaseControl:
                                                    , locator)))
             return element
         except TimeoutException:
-            traceback.print_exc()
             allure.attach(self.driver.get_screenshot_as_png(), "失败截图", allure.attachment_type.PNG)
             raise TimeoutException(msg="元素未找到，超时！")
